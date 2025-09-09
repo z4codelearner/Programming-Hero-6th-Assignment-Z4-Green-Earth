@@ -6,7 +6,7 @@ const loadCategories = () => {
     .then((data) => displayCategories(data.categories));
 };
 
-//* display categories got from API
+// display categories got from API
 
 const displayCategories = (categories) => {
 
@@ -21,4 +21,18 @@ const displayCategories = (categories) => {
     `;
     categoriesContainer.append(categoryPTag);
   }
+};
+
+// load all plants & active style add
+
+const loadAllPlants = () => {
+  manageSpinner(true);
+  fetch("https://openapi.programming-hero.com/api/plants")
+    .then((res) => res.json())
+    .then((allPlants) => {
+      removeActive();
+      const allPlantsBtnClick = document.getElementById("all-trees-btn");
+      allPlantsBtnClick.classList.add("active");
+      displayPlants(allPlants.plants);
+    });
 };
