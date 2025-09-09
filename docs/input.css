@@ -8,3 +8,8 @@
 .input, .select{
     width: 100% !important;
 }
+
+.active {
+  background-color: rgb(59, 185, 59);
+  color: white;
+}
